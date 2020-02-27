@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+export CONTECO_LABEL="kafka-rest.base - ContEco"
+export CONTECO_DESCRIPTION="Confluent Kafka REST image, with configuration changes."
+
+export CONTECO_TYPE="kafka-rest"
+export CONTECO_NAME="base"
+export CONTECO_TAG="5.4.0"
+
+export CONTECO_BASE="external.kafka-rest:5.4.0"
+export CONTECO_BUILD="image-base"
