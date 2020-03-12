@@ -2,9 +2,9 @@
 version: '3'
 services:
 
-# START SERVICE kafka-rest.base
-  kafka-rest:
-    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.kafka-rest.base:5.4.0
+# START SERVICE kafka_rest.base
+  kafka_rest:
+    image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.kafka_rest.base:5.4.0
     environment: [${CONTECO_DC_KAFKA_REST_ENVIRONMENT}]
     command: [${CONTECO_DC_KAFKA_REST_COMMAND}]
     volumes: [${CONTECO_DC_KAFKA_REST_VOLUMES}]
@@ -20,7 +20,7 @@ services:
           cpus: '${CONTECO_DC_KAFKA_REST_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_KAFKA_REST_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
       labels: [${CONTECO_DC_KAFKA_REST_DEPLOY_LABELS}]
-# END SERVICE kafka-rest.base
+# END SERVICE kafka_rest.base
 
 volumes: {${CONTECO_NETWORKLOCAL}_kafka_rest_volume: { external: true }}
 networks: {${CONTECO_STACKPREFIX}_overlay: { external: true }}

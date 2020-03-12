@@ -1,6 +1,6 @@
 ##### BEGIN image.base/Dockerfile/image-header #####
 FROM vcwebio/conteco.image.wrapper AS wrapper
-FROM vcwebio/conteco.external.kafka-rest:5.4.0 AS base
+FROM vcwebio/conteco.external.kafka_rest:5.4.0 AS base
 ##### END image.base/Dockerfile/image-header #####
 
 ##### BEGIN image.base/Dockerfile/conteco #####
@@ -22,20 +22,20 @@ COPY ./conteco/configs/etc/kafka/server.properties /etc/kafka/server.properties
 ##### BEGIN image.base/Dockerfile/env-labels-footer #####
 ENV CONTECO_REALM="vcwebio" \
     CONTECO_ECOSYSTEM="conteco" \
-    CONTECO_TYPE="kafka-rest" \
+    CONTECO_TYPE="kafka_rest" \
     CONTECO_NAME="base" \
     CONTECO_TAG="5.4.0" \
-    CONTECO_BASE="external.kafka-rest:5.4.0" \
+    CONTECO_BASE="external.kafka_rest:5.4.0" \
     CONTECO_BUILD="image-base"
 LABEL io.vcweb.schema-version="1.0" \
       io.vcweb.realm="vcwebio" \
       io.vcweb.ecosystem="conteco" \
-      io.vcweb.type="kafka-rest" \
+      io.vcweb.type="kafka_rest" \
       io.vcweb.name="base" \
       io.vcweb.tag="5.4.0" \
-      io.vcweb.base="external.kafka-rest:5.4.0" \
+      io.vcweb.base="external.kafka_rest:5.4.0" \
       io.vcweb.build="image-base" \
-      io.vcweb.label="kafka-rest.base - ContEco" \
+      io.vcweb.label="kafka_rest.base - ContEco" \
       io.vcweb.description="Confluent Kafka REST image, with configuration changes." \
-      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.kafka-rest.base --help" 
+      io.vcweb.docker.cmd.help="docker run vcwebio/conteco.kafka_rest.base --help" 
 ##### END image.base/Dockerfile/env-labels-footer #####
