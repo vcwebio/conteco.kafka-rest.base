@@ -5,13 +5,13 @@ services:
 # START SERVICE kafka_rest.base
   kafka_rest:
     image: ${CONTECO_REGISTRY}${CONTECO_REALM_RUNTIME}/conteco.kafka_rest.base:5.4.0
-    environment: [${CONTECO_DC_KAFKA_REST_ENVIRONMENT}]
-    command: [${CONTECO_DC_KAFKA_REST_COMMAND}]
-    volumes: [${CONTECO_DC_KAFKA_REST_VOLUMES}]
+    environment: ['KAFKA_REST_HOST_NAME= kafka_rest','KAFKA_REST_BOOTSTRAP_SERVERS= kafka:9092','KAFKA_REST_LISTENERS= http://0.0.0.0:8082','KAFKA_REST_SCHEMA_REGISTRY_URL= http://schema_registry:8081']
+    command: []
+    volumes: []
     ports: [${CONTECO_DC_KAFKA_REST_PORTS}]
-    networks: [${CONTECO_DC_KAFKA_REST_NETWORKS}]
+    networks: [${CONTECO_STACKPREFIX}_overlay]
     deploy:
-      mode: ${CONTECO_DC_KAFKA_REST_DEPLOY_MODE}
+      mode: replicated
       resources:
         limits:
           cpus: '${CONTECO_DC_KAFKA_REST_DEPLOY_RESOURCES_LIMITS_CPUS}'
@@ -19,8 +19,8 @@ services:
         reservations:
           cpus: '${CONTECO_DC_KAFKA_REST_DEPLOY_RESOURCES_RESERVATIONS_CPUS}'
           memory: '${CONTECO_DC_KAFKA_REST_DEPLOY_RESOURCES_RESERVATIONS_MEMORY}'
-      labels: [${CONTECO_DC_KAFKA_REST_DEPLOY_LABELS}]
+      labels: []
 # END SERVICE kafka_rest.base
 
-volumes: {${CONTECO_NETWORKLOCAL}_kafka_rest_volume: { external: true }}
+volumes: {}
 networks: {${CONTECO_STACKPREFIX}_overlay: { external: true }}
